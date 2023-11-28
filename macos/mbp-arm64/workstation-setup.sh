@@ -9,13 +9,15 @@ if ! command -v brew &> /dev/null; then
 fi
 
 # Add tap required for things like Visual Studio
-brew tap homebrew/cask-versions
+brew tap azure/functions
 
 # Install software using Homebrew (where available)
 brew install --cask 1password
 brew install --cask android-studio
+brew install angular-cli
+brew install azure-functions-core-tools@4
 brew install --cask arc
-brew install --cask charles-beta
+brew install --cask azure-data-studio
 brew install --cask daisydisk
 brew install --cask discord
 brew install --cask docker
@@ -24,6 +26,7 @@ brew install gifski
 brew install --cask gimp
 brew install git-lfs
 brew install --cask gitkraken
+brew install gh
 brew install gnupg
 brew install --cask google-chrome
 brew install --cask google-drive
