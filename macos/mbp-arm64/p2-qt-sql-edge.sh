@@ -1,0 +1,32 @@
+docker run \
+  --name '/sql-edge' \
+  --runtime 'runc' \
+  --volume '/Users/tommyc/volumes:/bak/' \
+  --log-driver 'json-file' \
+  --restart 'no' \
+  --cap-add 'SYS_PTRACE' \
+  --publish '0.0.0.0:1433:1433/tcp' \
+  --network 'bridge' \
+  --hostname 'dfedca634352' \
+  --expose '1401/tcp' \
+  --expose '1433/tcp' \
+  --user 'mssql' \
+  --env 'ACCEPT_EULA=1' \
+  --env 'MSSQL_SA_PASSWORD=Passw0rd!' \
+  --env 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' \
+  --env 'MSSQL_RPC_PORT=135' \
+  --env 'CONFIG_EDGE_BUILD=1' \
+  --env 'PAL_BOOT_WITH_MINIMAL_CONFIG=1' \
+  --env 'PAL_ENABLE_PAGE_ALIGNED_PE_FILE_CREATION=1' \
+  --env 'LD_LIBRARY_PATH=/opt/mssql/lib' \
+  --label 'com.azure.dev.image.build.sourceversion'='27968dae20b550ae4cfbd3692ee5bee8d0872ad2' \
+  --label 'com.azure.dev.image.system.teamfoundationcollectionuri'='https://dev.azure.com/tigerdid/' \
+  --label 'com.microsoft.product'='Microsoft SQL Server' \
+  --label 'com.microsoft.version'='15.0.2000.1574' \
+  --label 'org.opencontainers.image.ref.name'='ubuntu' \
+  --label 'org.opencontainers.image.version'='18.04' \
+  --label 'vendor'='Microsoft' \
+  --detach \
+  --entrypoint '/opt/mssql/bin/permissions_check.sh' \
+  'mcr.microsoft.com/azure-sql-edge' \
+  '/bin/sh' '-c' '/opt/mssql/bin/launchpadd -usens=false -enableOutboundAccess=true -usesameuser=true -sqlGroup root -- -reparentOrphanedDescendants=true -useDefaultLaunchers=false & /app/asdepackage/AsdePackage & /opt/mssql/bin/sqlservr'
