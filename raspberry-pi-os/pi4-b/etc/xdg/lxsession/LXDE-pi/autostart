@@ -4,4 +4,4 @@
 @xset s off
 @xset -dpms
 @xset s noblank
-@chromium-browser --kiosk --enable-features=Vulkan dashboard.cos.crews.dev
+@chromium-browser --kiosk dashboard.cos.crews.dev
