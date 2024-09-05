@@ -52,7 +52,6 @@ brew install --cask visual-studio-code
 brew install --cask warp
 brew install wget
 brew install xcbeautify
-brew install xcparse
 
 # Install software using Mac App Store
 mas install 497799835  # Xcode
@@ -60,6 +59,7 @@ mas install 1561788435 # Usage
 
 # Install Xcode command line tools if necessary
 xcode-select --install || true
+brew install xcparse
 
 # Customize Dock
 defaults write com.apple.Dock autohide 1
