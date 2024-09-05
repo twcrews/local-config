@@ -63,9 +63,9 @@ brew install xcparse
 
 # Customize Dock
 defaults write com.apple.Dock autohide 1
-defaults write com.apple.dock autohide-delay -float 0 
-defaults delete com.apple.dock autohide-time-modifier
-defaults write com.apple.dock size-immutable -bool yes
+defaults write com.apple.Dock autohide-delay -float 0 
+defaults delete com.apple.Dock autohide-time-modifier
+defaults write com.apple.Dock size-immutable -bool yes
 killall Dock
 
 # Append .zshrc commands
