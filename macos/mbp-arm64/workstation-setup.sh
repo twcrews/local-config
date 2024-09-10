@@ -71,5 +71,8 @@ killall Dock
 # Append .zshrc commands
 echo "\n# Create command aliases\nalias simctl="xcrun simctl"\nalias dc="docker-compose"\n" >> ~/.zshrc
 
+# Disable restoring windows on reboot
+defaults write -g ApplePersistence -bool no
+
 # Finish
 echo "Software installation completed. A reboot may be necessary."
