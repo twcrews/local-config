@@ -9,53 +9,49 @@ if ! command -v brew &> /dev/null; then
 fi
 
 # Add third party taps
-brew tap chargepoint/xcparse
+brew tap deskflow/tap
 brew tap shaunsingh/sfmono-nerd-font-ligaturized
 
-# Install formulae and casks
+# Install formulae
+brew install cocoapods
+brew install colima
+brew install displayplacer
+brew install docker
+brew install docker-compose
+brew install gifski
+brew install mas
+brew install p7zip
+
+# Install casks
 brew install --cask 1password
 brew install --cask adguard
 brew install --cask android-studio
 brew install --cask arc
-brew install --cask audacity
 brew install --cask azure-data-studio
 brew install --cask balenaetcher
 brew install --cask bruno
-brew install --cask citrix-workspace
-brew install cocoapods
-brew install colima
 brew install --cask daisydisk
-brew install docker
-brew install docker-compose
+brew install --cask deskflow
 brew install --cask figma
 brew install --cask font-sf-mono-nerd-font-ligaturized
-brew install --cask font-smoothing-adjuster
-brew install gifski
 brew install --cask gimp
-brew install git-lfs
-brew install --cask gitkraken
-brew install gh
-brew install gnupg
-brew install go
 brew install --cask inkscape
-brew install --cask logi-options-plus
+brew install --cask logi-options+
 brew install --cask maccy
-brew install mas
+brew install --cask microsoft-auto-update
+brew install --cask microsoft-office
 brew install --cask microsoft-teams
 brew install --cask mitmproxy
-brew install p7zip
+brew install --cask obsidian
 brew install --cask parallels
-brew install ruby
+brew install --cask sf-symbols
 brew install --cask slack
-brew install swift-format
 brew install --cask visual-studio-code
 brew install --cask warp
-brew install wget
-brew install xcbeautify
 
 # Install software using Mac App Store
-mas install 497799835  # Xcode
-mas install 1561788435 # Usage
+mas install 497799835   # Xcode
+mas install 1561788435  # Usage
 
 # Install Xcode command line tools if necessary
 xcode-select --install || true
@@ -67,9 +63,6 @@ defaults write com.apple.Dock autohide-delay -float 0
 defaults delete com.apple.Dock autohide-time-modifier
 defaults write com.apple.Dock size-immutable -bool yes
 killall Dock
-
-# Append .zshrc commands
-echo "\n# Create command aliases\nalias simctl="xcrun simctl"\nalias dc="docker-compose"\n" >> ~/.zshrc
 
 # Disable restoring windows on reboot
 defaults write -g ApplePersistence -bool no
