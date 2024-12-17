@@ -1,6 +1,9 @@
 #!/bin/bash
 # Initial dev workstation setup script.
 
+# Execute this without cloning the repo by running the following:
+# source <(curl -s https://raw.githubusercontent.com/twcrews/local-config/refs/heads/master/macos/mbp-arm64/workstation-setup.sh)
+
 # Install Homebrew if not already installed
 if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
